@@ -1,4 +1,5 @@
 import { Poppins } from "next/font/google";
+import Image from "next/image";
 
 const poppins = Poppins({
   weight: ["200", "400", "600"],
@@ -11,14 +12,28 @@ const poppins = Poppins({
 export default function Home() {
   return (
     <main
-      className={`flex min-h-screen flex-col bg-neutral gap-8 items-center p-40 ${poppins.className}`}
+      className={`flex min-h-screen flex-col bg-neutral gap-8 items-center justify-center ${poppins.className}`}
     >
-      <h1 className="text-3xl">Tim Schneider</h1>
-      <div className="text-center">
-        <p>Software developer based in Magdeburg, Germany</p>
-        <p>You can find and contact me on the following profiles.</p>
+      <div className="hero bg-base-300">
+        <div className="hero-content flex-col lg:flex-row">
+          <Image
+            width={300}
+            height={300}
+            src="/Tim_ProfilePic.JPG"
+            className="max-w-sm rounded-2xl shadow-2xl"
+            alt={"Picture of Tim"}
+          />
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl font-bold">Tim Schneider</h1>
+            <p className=" py-3 lg:py-6">
+              Software developer based in Magdeburg, Germany
+            </p>
+          </div>
+        </div>
       </div>
-      <div className="flex flex-row gap-4">
+
+      <h1 className="text-3xl">Find me here</h1>
+      <div className="flex flex-col sm:flex-row gap-4">
         <div className="tooltip tooltip-bottom" data-tip="Github">
           <a href="https://github.com/T1mS22">
             <svg
@@ -26,6 +41,16 @@ export default function Home() {
               viewBox="0 0 40 40"
             >
               <path d="M36,20.3c0,3.5-1,6.6-3.1,9.4c-2,2.8-4.7,4.7-7.9,5.8c-0.4,0.1-0.6,0-0.8-0.1c-0.2-0.2-0.3-0.4-0.3-0.6v-4.4 c0-1.3-0.4-2.3-1.1-3c0.8-0.1,1.5-0.2,2.1-0.4c0.6-0.2,1.3-0.4,2-0.8c0.7-0.4,1.2-0.8,1.7-1.4c0.5-0.5,0.8-1.3,1.1-2.2 s0.4-2,0.4-3.1c0-1.7-0.5-3.1-1.6-4.3c0.5-1.3,0.5-2.7-0.2-4.2c-0.4-0.1-1,0-1.7,0.2c-0.7,0.3-1.4,0.6-1.9,0.9L24,12.5 c-1.3-0.4-2.6-0.5-4-0.5s-2.7,0.2-4,0.5c-0.2-0.2-0.5-0.3-0.9-0.6c-0.4-0.2-0.9-0.5-1.7-0.8c-0.8-0.3-1.4-0.4-1.8-0.3 c-0.6,1.6-0.7,3-0.1,4.2c-1.1,1.2-1.6,2.6-1.6,4.3c0,1.2,0.1,2.2,0.4,3.1s0.6,1.6,1.1,2.2s1,1,1.7,1.4c0.7,0.4,1.3,0.6,2,0.8 c0.6,0.2,1.3,0.3,2.1,0.4c-0.6,0.5-0.9,1.2-1,2.1c-0.3,0.1-0.6,0.2-0.9,0.3c-0.3,0.1-0.7,0.1-1.2,0.1c-0.5,0-0.9-0.1-1.4-0.4 c-0.5-0.3-0.8-0.7-1.2-1.3c-0.3-0.4-0.6-0.8-1-1.1c-0.4-0.3-0.8-0.4-1-0.5L9,26.5c-0.3,0-0.5,0-0.6,0.1c-0.1,0.1-0.1,0.1-0.1,0.2 c0,0.1,0.1,0.2,0.2,0.3c0.1,0.1,0.2,0.2,0.3,0.2l0.1,0.1c0.3,0.1,0.6,0.4,0.9,0.8s0.5,0.7,0.7,1.1l0.2,0.5c0.2,0.5,0.5,1,0.9,1.3 c0.4,0.3,0.9,0.5,1.4,0.6c0.5,0.1,1,0.1,1.4,0.1c0.5,0,0.9,0,1.2-0.1l0.5-0.1c0,0.5,0,1.1,0,1.9c0,0.7,0,1.1,0,1.1 c0,0.2-0.1,0.5-0.3,0.6c-0.2,0.2-0.5,0.2-0.8,0.1c-3.2-1.1-5.8-3-7.9-5.8S4,23.8,4,20.3c0-2.9,0.7-5.6,2.1-8S9.5,7.8,12,6.4 s5.1-2.1,8-2.1s5.6,0.7,8,2.1s4.4,3.4,5.8,5.8S36,17.4,36,20.3L36,20.3z"></path>
+            </svg>
+          </a>
+        </div>
+        <div className="tooltip tooltip-bottom" data-tip="LinkedIn">
+          <a href="https://www.linkedin.com/in/tim-schneider-520566237/">
+            <svg
+              className="w-20 h-20 p-3 border-secondary border-2 rounded-full hover:fill-primary hover:border-primary"
+              viewBox="-4 -4 32 32"
+            >
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
             </svg>
           </a>
         </div>
@@ -60,7 +85,7 @@ export default function Home() {
           </a>
         </div>
       </div>
-      <p className="absolute bottom-4 text-sm">
+      <p className="bottom-4 pb-4 text-sm">
         ©2024 Made by Tim Schneider with &#9829;
       </p>
     </main>
