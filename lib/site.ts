@@ -12,6 +12,8 @@ export type Role = {
   title: string;
   description: string;
   icon: RoleIcon;
+  /** Turns the first occurrence of `text` in the description into a link. */
+  link?: { text: string; href: string };
 };
 
 const email = "tim@t-s.dev";
@@ -69,8 +71,10 @@ export const roles: readonly Role[] = [
   },
   {
     title: "Security enthusiast",
-    description: "CTFs from time to time, always curious how systems break.",
+    description:
+      "TryHackMe's Advent of Cyber every December since 2022, plus the odd CTF.",
     icon: "shield",
+    link: { text: "TryHackMe", href: "https://tryhackme.com/p/t1ms22" },
   },
   {
     title: "Volunteer firefighter",
@@ -82,6 +86,35 @@ export const roles: readonly Role[] = [
     title: "Drummer",
     description: "Keeping time when I'm away from the keyboard.",
     icon: "drum",
+  },
+];
+
+export type Certification = {
+  code: string;
+  name: string;
+  year: number;
+  /** Public Microsoft Learn share link, used to verify the credential. */
+  href: string;
+};
+
+export const certifications: readonly Certification[] = [
+  {
+    code: "AZ-500",
+    name: "Azure Security Engineer Associate",
+    year: 2024,
+    href: "https://learn.microsoft.com/api/credentials/share/en-us/TimSchneider-6495/9A8C4F904AED47E4?sharingId=E3D1863E60187058",
+  },
+  {
+    code: "SC-900",
+    name: "Security, Compliance, and Identity Fundamentals",
+    year: 2023,
+    href: "https://learn.microsoft.com/api/credentials/share/en-us/TimSchneider-6495/E09478E90AE57439?sharingId=E3D1863E60187058",
+  },
+  {
+    code: "AZ-900",
+    name: "Azure Fundamentals",
+    year: 2023,
+    href: "https://learn.microsoft.com/api/credentials/share/en-us/TimSchneider-6495/C4D3A7D74D09721D?sharingId=E3D1863E60187058",
   },
 ];
 
@@ -97,4 +130,5 @@ export const site = {
   companyUrl: "https://devdeer.com/en",
   socials,
   roles,
+  certifications,
 } as const;

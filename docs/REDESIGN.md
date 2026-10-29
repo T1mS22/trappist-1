@@ -47,9 +47,10 @@ Single dark theme (`color-scheme: dark`), replaces `mytheme` in `app/globals.css
    - Below: 4 role cards stacked as rows, each with an icon (24px, primary), title, one muted line:
      - Cloud infrastructure and security (cloud icon): `Building and securing cloud environments for our customers at DEVDEER.`
      - Software developer (code icon): `Trained through an apprenticeship, still happy to write code.`
-     - Security enthusiast (shield icon): `CTFs from time to time, always curious how systems break.`
+     - Security enthusiast (shield icon): `TryHackMe's Advent of Cyber every December since 2022, plus the odd CTF.` `TryHackMe` is an InlineLink to https://tryhackme.com/p/t1ms22 (via the role's optional `link`).
      - Volunteer firefighter (siren icon): `On call for real-world incidents too. Those don't come with a rollback.`
      - Drummer (drum icon): `Keeping time when I'm away from the keyboard.`
+   - Below the role cards: mono muted label `certifications` (h3), then a grid of cert cards (1 col, 2 from `sm`, the first card spans both columns), data in `site.certifications`. Each card is one link (new tab) to the Microsoft Learn share URL, same card style as the roles, hover border primary: top row `BadgeCheck` icon + exam code (mono, primary) with an `ArrowUpRight` (faint, primary on hover) on the right; then the name (semibold); then `Microsoft · {year}` (mono 12px faint). Current: AZ-500 Azure Security Engineer Associate (2024), SC-900 Security, Compliance, and Identity Fundamentals (2023), AZ-900 Azure Fundamentals (2023). Keep the highest-level cert first.
 4. **Side project** (`id="side-project"`): label `// side project`, h2 `Rallye Timer`. Two columns on `md` (text left, phone right, centered), stacked below with the phone under the text.
    - p: `An Android app I built for co-drivers at classic and regularity rallies. Up to 50 countdown timers, and a voice that counts down the final 10 seconds, so your eyes can stay on the road book.`
    - Feature list (lucide `Check` in primary, text-sm): `Up to 50 simultaneous or sequential timers` · `Voice countdown in German or English` · `Precise to 1/100 of a second`.

@@ -1,5 +1,7 @@
 import Image from "next/image";
 import {
+  ArrowUpRight,
+  BadgeCheck,
   Cloud,
   CodeXml,
   Drum,
@@ -9,7 +11,7 @@ import {
 } from "lucide-react";
 import InlineLink from "@/components/InlineLink";
 import SectionLabel from "@/components/SectionLabel";
-import { site, type RoleIcon } from "@/lib/site";
+import { site, type Role, type RoleIcon } from "@/lib/site";
 
 const roleIcons: Record<RoleIcon, LucideIcon> = {
   cloud: Cloud,
@@ -18,6 +20,19 @@ const roleIcons: Record<RoleIcon, LucideIcon> = {
   siren: Siren,
   drum: Drum,
 };
+
+function RoleDescription({ role }: { role: Role }) {
+  const index = role.link ? role.description.indexOf(role.link.text) : -1;
+  if (!role.link || index === -1) return role.description;
+  const end = index + role.link.text.length;
+  return (
+    <>
+      {role.description.slice(0, index)}
+      <InlineLink href={role.link.href}>{role.link.text}</InlineLink>
+      {role.description.slice(end)}
+    </>
+  );
+}
 
 export default function About() {
   return (
@@ -62,11 +77,45 @@ export default function About() {
                     />
                     <div>
                       <h3 className="font-semibold">{role.title}</h3>
-                      <p className="text-sm text-muted">{role.description}</p>
+                      <p className="text-sm text-muted">
+                        <RoleDescription role={role} />
+                      </p>
                     </div>
                   </li>
                 );
               })}
+            </ul>
+            <h3 className="mt-10 font-mono text-xs tracking-[0.04em] text-muted lowercase">
+              certifications
+            </h3>
+            <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+              {site.certifications.map((cert) => (
+                // The first cert is the highest level, so it gets a full row.
+                <li key={cert.code} className="sm:first:col-span-2">
+                  <a
+                    href={cert.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Microsoft Certified: ${cert.name} (${cert.code}), verify on Microsoft Learn`}
+                    className="group flex h-full flex-col rounded-xl border border-line bg-base-200 px-5 py-4 transition-colors hover:border-primary"
+                  >
+                    <span className="flex items-center justify-between gap-3">
+                      <span className="flex items-center gap-2 font-mono text-primary">
+                        <BadgeCheck className="size-5" aria-hidden="true" />
+                        {cert.code}
+                      </span>
+                      <ArrowUpRight
+                        className="size-4 text-faint transition-colors group-hover:text-primary"
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <span className="mt-2 font-semibold">{cert.name}</span>
+                    <span className="mt-auto pt-1 font-mono text-xs text-faint">
+                      Microsoft · {cert.year}
+                    </span>
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
