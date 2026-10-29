@@ -3480,6 +3480,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lucide-react@npm:^1.64.0":
+  version: 1.64.0
+  resolution: "lucide-react@npm:1.64.0"
+  peerDependencies:
+    "@types/react": "*"
+    react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 10c0/fe02e02a8c6a58fad4e27f0be0791fd4a6015ac02eec026bb51299e9e6221ed28b9e735229acb711e3fdfc27055ea89f326077249d63ff00fd5968d3e93f703f
+  languageName: node
+  linkType: hard
+
 "magic-string@npm:^0.30.21":
   version: 0.30.21
   resolution: "magic-string@npm:0.30.21"
@@ -4590,6 +4603,7 @@ __metadata:
     daisyui: "npm:^5.7.50"
     eslint: "npm:^9.39.5"
     eslint-config-next: "npm:^16.4.3"
+    lucide-react: "npm:^1.64.0"
     next: "npm:^16.4.3"
     postcss: "npm:^8.5.32"
     prettier: "npm:^3.9.10"

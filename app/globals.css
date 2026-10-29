@@ -1,46 +1,104 @@
 @import "tailwindcss";
 
-/* Only the custom theme below is used; built-in light/dark themes are disabled
-   so the site stays light regardless of the OS color scheme. */
+/* Only the custom theme below is used; built-in daisyUI themes are disabled
+   so the site stays dark regardless of the OS color scheme. */
 @plugin "daisyui" {
   themes: false;
 }
 
 @plugin "daisyui/theme" {
-  name: "mytheme";
+  name: "trappist";
   default: true;
   prefersdark: false;
-  color-scheme: light;
+  color-scheme: dark;
 
+  --color-base-100: #0b0d12;
+  --color-base-200: #13161e;
+  --color-base-300: #1c2029;
+  --color-base-content: #e8e6e1;
   --color-primary: #ff7a00;
-  --color-secondary: #323232;
+  --color-primary-content: #1a0d00;
   --color-accent: #ff5714;
-  --color-neutral: #b8b8b8;
-  --color-base-100: #f0f0f0;
-  --color-info: #17a2b8;
-  --color-success: #28a745;
-  --color-warning: #ffc107;
-  --color-error: #dc3545;
+  --color-neutral: #232733;
+  --color-neutral-content: #e8e6e1;
 
-  /* Derived values below match what daisyUI 4 generated for this theme. */
-  --color-base-200: oklch(0.88828 0 0);
-  --color-base-300: oklch(0.82142 0 0);
-  --color-base-content: oklch(0.191028 0 0);
-  --color-primary-content: oklch(0.144603 0.037935 50.543703);
-  --color-secondary-content: oklch(0.863427 0 0);
-  --color-accent-content: oklch(0.13571 0.042893 38.073508);
-  --color-neutral-content: oklch(0.156521 0 0);
-  --color-info-content: oklch(0.131047 0.022095 212.166534);
-  --color-success-content: oklch(0.128026 0.035015 146.742555);
-  --color-warning-content: oklch(0.168834 0.034432 84.933789);
-  --color-error-content: oklch(0.11831 0.040405 21.238763);
-
-  --radius-selector: 1rem;
-  --radius-field: 0.25rem;
-  --radius-box: 1rem;
+  --radius-selector: 0.5rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.75rem;
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
   --border: 1px;
   --depth: 0;
   --noise: 0;
+}
+
+/* Custom tokens: text-muted, text-faint, border-line, bg-line, ...
+   font-mono resolves to JetBrains Mono, loaded via next/font in app/layout.tsx. */
+@theme {
+  --color-muted: #9a988f;
+  --color-faint: #6b6a64;
+  --color-line: #232733;
+  --font-mono:
+    var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  p,
+  li {
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  line-height: 1.7;
+  background-color: var(--color-base-100);
+  /* Static starfield: layered 1px dots on differently sized tiles. */
+  background-image:
+    radial-gradient(1px 1px at 23px 41px, rgb(255 255 255 / 0.5), transparent),
+    radial-gradient(
+      1px 1px at 157px 112px,
+      rgb(255 255 255 / 0.3),
+      transparent
+    ),
+    radial-gradient(1px 1px at 89px 203px, rgb(255 255 255 / 0.4), transparent),
+    radial-gradient(1px 1px at 241px 67px, rgb(255 255 255 / 0.2), transparent),
+    radial-gradient(
+      1px 1px at 311px 281px,
+      rgb(255 255 255 / 0.35),
+      transparent
+    ),
+    radial-gradient(1px 1px at 52px 337px, rgb(255 255 255 / 0.25), transparent);
+  background-size:
+    280px 280px,
+    340px 340px,
+    410px 410px,
+    370px 370px,
+    460px 460px,
+    520px 520px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Keep anchor targets clear of the sticky nav. */
+section[id] {
+  scroll-margin-top: 4rem;
 }

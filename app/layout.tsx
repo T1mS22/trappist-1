@@ -1,16 +1,25 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { JetBrains_Mono, Poppins } from "next/font/google";
+import { site } from "@/lib/site";
 import "./globals.css";
 
 const poppins = Poppins({
-  weight: ["200", "400", "600"],
+  weight: ["400", "600"],
   display: "swap",
-  style: ["normal", "italic"],
   subsets: ["latin"],
 });
 
-const title = "Tim Schneider";
-const description = "Software developer based in Magdeburg, Germany.";
+// Exposed as a CSS variable; Tailwind's `font-mono` (--font-mono in
+// app/globals.css) resolves to it.
+const jetbrainsMono = JetBrains_Mono({
+  weight: ["400"],
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-jetbrains-mono",
+});
+
+const title = site.name;
+const description = site.tagline;
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -44,7 +53,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" data-theme="mytheme">
+    <html lang="en" data-theme="trappist" className={jetbrainsMono.variable}>
       <body className={poppins.className}>{children}</body>
     </html>
   );
