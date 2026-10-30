@@ -1,10 +1,12 @@
 import CommandPalette from "@/components/CommandPalette";
+import { site } from "@/lib/site";
 
 const links = [
   { href: "#about", label: "about" },
   { href: "#side-project", label: "project" },
   { href: "#contact", label: "contact" },
   { href: "#trappist-1", label: "trappist-1" },
+  { href: site.toolsUrl, label: "tools" },
 ];
 
 export default function Nav() {

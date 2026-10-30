@@ -124,6 +124,7 @@ export const site = {
   tagline:
     "Cloud infrastructure and security at DEVDEER. Trained software developer, originally from Magdeburg, now living in Kirchen (Sieg).",
   repoUrl: "https://github.com/T1mS22/trappist-1",
+  toolsUrl: "https://tools.t-s.dev",
   rallyTimerUrl: "https://www.rallyetimer.de/",
   rallyTimerPlayUrl:
     "https://play.google.com/store/apps/details?id=de.rallyetimer.app&referrer=utm_source%3Dt-s.dev%26utm_medium%3Dwebsite%26utm_campaign%3Dpersonal-site",

@@ -9,12 +9,20 @@ export default function Footer() {
         <p>
           © {year} {site.name}
         </p>
-        <a
-          href="#top"
-          className="text-muted transition-colors hover:text-primary"
-        >
-          Back to top ↑
-        </a>
+        <div className="flex items-center gap-6">
+          <a
+            href={site.toolsUrl}
+            className="text-muted transition-colors hover:text-primary"
+          >
+            Tools
+          </a>
+          <a
+            href="#top"
+            className="text-muted transition-colors hover:text-primary"
+          >
+            Back to top ↑
+          </a>
+        </div>
       </div>
     </footer>
   );

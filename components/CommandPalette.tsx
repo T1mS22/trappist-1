@@ -24,6 +24,7 @@ import {
   Send,
   Timer,
   User,
+  Wrench,
   type LucideIcon,
 } from "lucide-react";
 import { createPortal } from "react-dom";
@@ -209,6 +210,15 @@ function buildGroups(motionEnabled: boolean): CommandGroup[] {
           icon: lucide(CodeXml),
           hint: EXTERNAL_HINT,
           action: { type: "external", href: site.repoUrl },
+        },
+        {
+          id: "open-tools",
+          label: "Open tools",
+          keywords:
+            "tools password uuid json jwt base64 hash subnet iban timestamp converter",
+          icon: lucide(Wrench),
+          hint: EXTERNAL_HINT,
+          action: { type: "external", href: site.toolsUrl },
         },
         {
           id: "open-rally-timer",
